@@ -126,7 +126,7 @@ ${_}`}class O extends Error{constructor({message:e,code:r,cause:s,name:n}){var i
           <p class="dock-error" id="phone-error" hidden></p>
           <button class="btn-send" id="phone-save-btn">text me when it plays 🎧</button>
           <button class="btn-ghost" id="phone-skip-btn">no thanks</button>
-          <p class="phone-fine-print">msg &amp; data rates may apply · reply STOP anytime to opt out</p>
+          <p class="phone-fine-print">msg &amp; data rates may apply · msg frequency varies · reply STOP to opt out, HELP for help · <a href="privacy.html" target="_blank">privacy</a> &amp; <a href="terms.html" target="_blank">terms</a></p>
         </div>`:""}
         <div id="success-actions" ${i?"hidden":""}>
           <button class="btn-send" id="again-btn">send another one 🎙️</button>
