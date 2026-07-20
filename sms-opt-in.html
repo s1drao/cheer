@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#a92121" />
+    <title>CheerClub SMS opt-in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,700&family=Rubik:wght@500;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Rubik", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #a92121;
+        color: #f3e5c6;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: #a92121;
+      }
+
+      body {
+        min-height: 100svh;
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
+      }
+
+      main {
+        width: min(100%, 430px);
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        padding: max(7svh, 48px) 24px 0;
+        text-align: center;
+      }
+
+      .stamp {
+        align-self: center;
+        display: inline-block;
+        margin-bottom: 18px;
+        padding: 7px 19px;
+        border: 2px solid #f3e5c6;
+        border-radius: 999px;
+        font: italic 700 16px "Fraunces", serif;
+        transform: rotate(-4deg);
+      }
+
+      h1 {
+        margin: 0 auto 12px;
+        max-width: 360px;
+        font-size: clamp(35px, 9vw, 43px);
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+      }
+
+      h1 span { color: #ffd985; }
+
+      .summary {
+        max-width: 330px;
+        margin: 0 auto 28px;
+        color: rgba(243, 229, 198, 0.7);
+        font-size: 16px;
+        line-height: 1.45;
+      }
+
+      .opt-in {
+        padding: 17px 15px 13px;
+        border: 1.2px solid rgba(243, 229, 198, 0.28);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.055);
+      }
+
+      .question {
+        margin: 0 0 16px;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      input {
+        width: 100%;
+        min-height: 62px;
+        margin: 0 0 14px;
+        padding: 16px;
+        border: 1.2px solid rgba(243, 229, 198, 0.25);
+        border-radius: 15px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.08);
+        color: #f3e5c6;
+        caret-color: #f3e5c6;
+        font: 500 18px "Rubik", sans-serif;
+        text-align: center;
+      }
+
+      input::placeholder { color: rgba(243, 229, 198, 0.42); }
+      input:focus { border-color: #f3e5c6; }
+
+      button {
+        width: 100%;
+        border: 0;
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      .primary {
+        min-height: 62px;
+        border-radius: 18px;
+        background: #f3e5c6;
+        color: #a92121;
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 8px 14px rgba(0, 0, 0, 0.18);
+      }
+
+      .secondary {
+        padding: 13px 0 8px;
+        background: transparent;
+        color: rgba(243, 229, 198, 0.78);
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .fine-print {
+        margin: 2px 0 0;
+        color: rgba(243, 229, 198, 0.48);
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .fine-print a { color: rgba(243, 229, 198, 0.68); }
+
+      .runners {
+        width: 100vw;
+        max-height: 25svh;
+        margin-top: auto;
+        align-self: center;
+        object-fit: contain;
+        object-position: bottom;
+      }
+
+      .confirmation {
+        margin: 0;
+        padding: 22px 8px;
+        font-size: 17px;
+        line-height: 1.5;
+      }
+
+      @media (max-height: 670px) {
+        main { padding-top: 24px; }
+        .summary { margin-bottom: 16px; }
+        .runners { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="stamp">DELIVERED ✦</div>
+      <h1>your cheer is on its <span>way</span></h1>
+      <p class="summary">Sid, your voice will play in Sid's ears at a mile marker mid-run.</p>
+
+      <section class="opt-in" id="opt-in">
+        <p class="question">📲 want a text the moment Sid hears it?</p>
+        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="your phone number" aria-label="your phone number" />
+        <button class="primary" id="submit" type="button">text me when it plays</button>
+        <button class="secondary" id="skip" type="button">no thanks</button>
+        <p class="fine-print">msg &amp; data rates may apply · msg frequency varies · reply STOP to opt out, HELP for help · <a href="/privacy.html">privacy</a> &amp; <a href="/terms.html">terms</a></p>
+      </section>
+
+      <img class="runners" src="/login-runners.png" alt="" aria-hidden="true" />
+    </main>
+
+    <script>
+      const phone = document.getElementById("phone");
+      const optIn = document.getElementById("opt-in");
+
+      document.getElementById("submit").addEventListener("click", () => {
+        const digits = phone.value.replace(/\D/g, "");
+        if (digits.length < 10) {
+          phone.setCustomValidity("Please enter a valid phone number.");
+          phone.reportValidity();
+          return;
+        }
+        phone.setCustomValidity("");
+        optIn.innerHTML = '<p class="confirmation">Thanks! This demonstration page does not save or send the phone number entered.</p>';
+      });
+
+      document.getElementById("skip").addEventListener("click", () => {
+        phone.value = "";
+        phone.blur();
+      });
+    </script>
+  </body>
+</html>
