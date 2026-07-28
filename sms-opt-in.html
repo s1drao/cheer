@@ -77,10 +77,18 @@
       }
 
       .question {
-        margin: 0 0 16px;
+        margin: 0 0 6px;
         font-size: 17px;
         font-weight: 700;
         line-height: 1.3;
+      }
+
+      .optional-note {
+        margin: 0 0 16px;
+        color: rgba(243, 229, 198, 0.7);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
       }
 
       input {
@@ -167,11 +175,18 @@
 
       <section class="opt-in" id="opt-in">
         <p class="question">📲 want a text the moment Sid hears it?</p>
+        <p class="optional-note">totally optional — your cheer is already on its way either way</p>
         <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="your phone number" aria-label="your phone number" />
         <button class="primary" id="submit" type="button">text me when it plays</button>
         <button class="secondary" id="skip" type="button">no thanks</button>
-        <p class="fine-print">msg &amp; data rates may apply · msg frequency varies · reply STOP to opt out, HELP for help · <a href="/privacy.html">privacy</a> &amp; <a href="/terms.html">terms</a></p>
+        <p class="fine-print">by tapping "text me when it plays" you agree to receive recurring text messages from CheerClub at the number you provide — a confirmation, a text when your cheer plays, and a text when Sid schedules a new run. consent is not required to record or send cheers. msg &amp; data rates may apply · msg frequency varies · reply STOP to opt out, HELP for help · <a href="/privacy.html">privacy</a> &amp; <a href="/terms.html">terms</a></p>
       </section>
+
+      <p class="fine-print" style="margin-top: 14px">
+        this page is an exact public replica of the optional SMS opt-in step a supporter sees right after recording a
+        voice cheer on a runner's page at cheerclub.app. entering a phone number is never required — the cheer is
+        delivered whether or not the supporter opts in.
+      </p>
 
       <img class="runners" src="/login-runners.png" alt="" aria-hidden="true" />
     </main>
