@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cheer for my run 📣</title>
+  <meta property="og:site_name" content="CheerClub" />
+  <meta property="og:title" content="Cheer for my run 📣" />
+  <meta property="og:description" content="Send a voice note — it plays in my ears while I run 🏃‍♀️" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cheerclub.app/og/marathon.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://cheerclub.app/og/marathon.png" />
+  <script>
+    (function () {
+      var token = new URLSearchParams(location.search).get("t");
+      if (token) location.replace("/?t=" + encodeURIComponent(token));
+    })();
+  </script>
+</head>
+<body>
+  <p style="font-family: system-ui, sans-serif; padding: 24px;">
+    Opening cheer recorder…
+    <a id="link" href="/">Continue</a>
+  </p>
+  <script>
+    var token = new URLSearchParams(location.search).get("t");
+    if (token) document.getElementById("link").href = "/?t=" + encodeURIComponent(token);
+  </script>
+</body>
+</html>
