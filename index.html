@@ -60,7 +60,7 @@
       }
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-DAB6v3HK.js"></script>
+    <script type="module" crossorigin src="/assets/index-DAf_n_uw.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DC-aSHi-.css">
   </head>
   <body>
@@ -76,10 +76,33 @@
         disablepictureinpicture
         preload="auto"
         poster="/hero-poster.jpg?v=2"
+        src="/hero.mp4?v=2"
         aria-hidden="true"
-      >
-        <source src="/hero.mp4?v=2" type="video/mp4" />
-      </video>
+      ></video>
+      <script>
+        // Kick muted inline playback as soon as the tag exists — iOS will
+        // ignore the autoplay attribute if play() only happens after the
+        // deferred module loads, or if Reduce Motion is on.
+        (function () {
+          if (document.documentElement.classList.contains("cheer-mode")) return;
+          var v = document.getElementById("hero-video");
+          if (!v) return;
+          v.muted = true;
+          v.defaultMuted = true;
+          v.playsInline = true;
+          v.setAttribute("playsinline", "");
+          v.setAttribute("webkit-playsinline", "");
+          v.volume = 0;
+          var play = function () {
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          };
+          play();
+          v.addEventListener("loadedmetadata", play);
+          v.addEventListener("loadeddata", play);
+          v.addEventListener("canplay", play);
+        })();
+      </script>
       <div class="film-veil" aria-hidden="true"></div>
 
       <header class="film-brand">
