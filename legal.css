@@ -1,0 +1,280 @@
+/* Shared legal pages — same black canvas and white type as the film landing. */
+
+@font-face {
+  font-family: "Audiowide";
+  src: url("/fonts/Audiowide-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Elms Sans";
+  src: url("/fonts/ElmsSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Elms Sans";
+  src: url("/fonts/ElmsSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Elms Sans";
+  src: url("/fonts/ElmsSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0 24px 80px;
+  background: #000;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: "Elms Sans", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.7;
+}
+
+a {
+  color: rgba(255, 255, 255, 0.88);
+  text-underline-offset: 0.18em;
+}
+
+a:hover,
+a:focus-visible {
+  color: #fff;
+}
+
+.legal-nav {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: max(28px, env(safe-area-inset-top)) 0 36px;
+}
+
+.legal-brand {
+  font-family: "Audiowide", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.legal-back {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+.legal-back:hover,
+.legal-back:focus-visible {
+  color: #fff;
+}
+
+main {
+  width: min(100%, 720px);
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-family: "Audiowide", sans-serif;
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.updated,
+.intro {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  margin: 0 0 28px;
+}
+
+.intro {
+  font-size: 16.5px;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 36em;
+}
+
+h2 {
+  margin: 40px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: "Elms Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+h3 {
+  margin: 24px 0 8px;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #fff;
+}
+
+p,
+li {
+  margin: 0 0 14px;
+}
+
+ul,
+ol {
+  padding-left: 22px;
+}
+
+li + li {
+  margin-top: 6px;
+}
+
+strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+.toc {
+  margin: 28px 0 8px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.toc strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 20px;
+  columns: 2;
+  font-size: 14px;
+}
+
+.toc a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.toc a:hover,
+.toc a:focus-visible {
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 13.5px;
+}
+
+th,
+td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 9px 11px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: #fff;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.highlight,
+.note {
+  margin: 16px 0 20px;
+  padding: 14px 18px;
+  border-left: 2px solid #fbe74d;
+  background: rgba(251, 231, 77, 0.06);
+}
+
+.caps {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.request {
+  margin: 28px 0;
+  padding: 22px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.request p {
+  margin: 10px 0 0;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.button:hover,
+.button:focus-visible {
+  border-color: #fff;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus-visible {
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .toc ol { columns: 1; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 0 20px 64px; }
+}
