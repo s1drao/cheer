@@ -15,7 +15,7 @@
 </nav>
 <main>
   <h1>CheerClub Privacy Policy</h1>
-  <p class="updated">Effective Date: July 17, 2026 · Last Updated: July 17, 2026 · Version 1.1</p>
+  <p class="updated">Effective Date: July 17, 2026 · Last Updated: October 18, 2026 · Version 1.2</p>
 
   <p>CheerClub ("<strong>CheerClub</strong>," the "<strong>Company</strong>," "<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>") respects your privacy and is committed to protecting it through our compliance with this Privacy Policy (this "<strong>Policy</strong>").</p>
 
@@ -69,6 +69,7 @@
     <tr><td>Identifiers — account</td><td>Mobile phone number (verified via one-time passcode), display name</td><td>Runners</td><td>Required to create a Runner account</td></tr>
     <tr><td>Run information</td><td>Run title, planned distance, scheduled date/time, theme selection, live progress (miles completed), run status, share link token</td><td>Runners</td><td>Required to create a run</td></tr>
     <tr><td>Cheer content</td><td>Voice recording (audio), the display name you type when recording, timestamps</td><td>Cheerers</td><td>Required to submit a Cheer</td></tr>
+    <tr><td>Selected contact information</td><td>Name and phone number for a person you choose from your address book and ask CheerClub to invite</td><td>Runners</td><td>Optional — sent to us only when you choose that person for an invitation</td></tr>
     <tr><td>Identifiers — SMS opt-in</td><td>Mobile phone number, date/time and manner of consent, opt-out records</td><td>Cheerers</td><td><strong>Optional</strong> — collected only if you complete the opt-in form</td></tr>
     <tr><td>Communications</td><td>The contents of emails, support requests, or other correspondence you send us, and our responses</td><td>Anyone</td><td>Optional</td></tr>
   </table>
@@ -81,10 +82,13 @@
     <tr><td>Anonymous cheerer identifier</td><td>A randomly generated identifier (UUID) stored in your browser's local storage, used to associate your Cheers across visits and runs</td><td>Local storage (see <a href="#s6">Section 6</a>)</td></tr>
     <tr><td>Push notification tokens</td><td>Apple Push Notification service (APNs) device tokens for Runners who enable notifications</td><td>App, with your permission</td></tr>
     <tr><td>Microphone audio</td><td>Audio captured only while you actively hold the record button; recording requires your explicit browser-level microphone permission and stops when you release the button</td><td>Browser MediaRecorder API</td></tr>
+    <tr><td>Run location &amp; route data</td><td>Precise GPS coordinates, timestamps, distance, speed, course, altitude, accuracy, and the route location where a Cheer played</td><td>App location services, with your permission, while a run is active</td></tr>
+    <tr><td>Run motion &amp; fitness data</td><td>Step count, cadence, pace-related measurements, relative altitude, and motion timestamps used to measure the run and evaluate the effect of Cheers</td><td>App motion sensors, with your permission, while a run is active</td></tr>
+    <tr><td>Address-book data processed on device</td><td>Names and phone numbers displayed in the contact picker; only contacts you select for an invitation are sent to CheerClub</td><td>App contacts access, with your permission</td></tr>
   </table>
 
   <h3>3.3 Information We Do <em>Not</em> Collect</h3>
-  <p>We do not knowingly collect: precise or continuous geolocation data (run progress is entered or measured as mileage only); payment card or financial account information (the Service is currently free); biometric identifiers or biometric information; health or medical records; Social Security numbers or other government identifiers; or information revealing racial or ethnic origin, religious beliefs, sexual orientation, immigration status, or union membership. We do not use facial recognition. We do not access your contacts, photos, or files.</p>
+  <p>We do not collect your payment card or financial account number; purchases are processed by Apple under Apple's privacy policy. We also do not knowingly collect biometric identifiers, medical records, Social Security numbers or other government identifiers, or information revealing racial or ethnic origin, religious beliefs, sexual orientation, immigration status, or union membership. We do not use facial recognition. CheerClub does not read your photo library; when you ask to save a CheerClub image or video, the App requests permission to add that item to Photos.</p>
 
   <h3>3.4 Information From Third Parties</h3>
   <p>We receive limited technical confirmations from our Service Providers — for example, delivery status of a text message from our SMS provider, or delivery status of a push notification from Apple. We do not purchase Personal Information from data brokers, and we do not enrich your profile with third-party marketing data.</p>
@@ -93,7 +97,8 @@
   <p>We use Personal Information for the following business purposes, and, where required by applicable law, in reliance on the corresponding legal bases:</p>
   <table>
     <tr><th>Purpose</th><th>Examples</th><th>Legal Basis (where applicable)</th></tr>
-    <tr><td>Providing the Service</td><td>Creating and authenticating Runner accounts; storing and delivering Cheers; playing Cheers at mile markers during runs; displaying the cheer squad to Runners and to visitors of the same share link</td><td>Performance of a contract</td></tr>
+    <tr><td>Providing the Service</td><td>Creating and authenticating Runner accounts; storing and delivering Cheers; measuring distance and playing Cheers at mile markers; rendering run routes and recaps; displaying the cheer squad to Runners and to visitors of the same share link</td><td>Performance of a contract</td></tr>
+    <tr><td>Run analysis</td><td>Calculating pace, cadence, and aggregated Cheer-impact measurements; syncing private route and sensor files to the Runner's account for analysis and product improvement</td><td>Performance of a contract; legitimate interests</td></tr>
     <tr><td>Notifications you request</td><td>Sending SMS notifications to opted-in Cheerers (see <a href="#s5">Section 5</a>); sending push notifications to Runners who enable them</td><td>Consent (withdrawable at any time)</td></tr>
     <tr><td>Social features</td><td>Recognizing returning Cheerers so a Runner can see who has cheered for them before and re-invite their "cheer club" to new runs</td><td>Performance of a contract; legitimate interests</td></tr>
     <tr><td>Safety, security &amp; integrity</td><td>Detecting, investigating, and preventing fraudulent, abusive, or unlawful activity; debugging and fixing errors; securing our systems</td><td>Legitimate interests; legal obligation</td></tr>
@@ -141,7 +146,7 @@
     <tr><th>Provider</th><th>Function</th><th>Information Involved</th></tr>
     <tr><td>Supabase, Inc.</td><td>Database, authentication, file storage, serverless functions</td><td>Account data, run data, Cheers, opt-in phone numbers</td></tr>
     <tr><td>Twilio Inc.</td><td>SMS delivery; phone number verification (one-time passcodes)</td><td>Phone numbers, message content, delivery metadata</td></tr>
-    <tr><td>Apple Inc.</td><td>Push notification delivery (APNs); App distribution</td><td>Device push tokens, notification content</td></tr>
+    <tr><td>Apple Inc.</td><td>Push notification delivery (APNs); App distribution and in-app purchase processing</td><td>Device push tokens, notification content, purchase and subscription status</td></tr>
     <tr><td>GitHub, Inc.</td><td>Static web page hosting</td><td>Standard web server logs (IP address, user agent)</td></tr>
   </table>
   <h3>7.3 Legal Requirements &amp; Protection</h3>
@@ -157,6 +162,7 @@
     <tr><th>Data</th><th>Retention Period</th></tr>
     <tr><td>Runner account data</td><td>Life of the account; deleted upon verified deletion request</td></tr>
     <tr><td>Runs and Cheers (audio + names)</td><td>While the related run and accounts remain active; deleted when the run or account is deleted</td></tr>
+    <tr><td>Run routes and sensor telemetry</td><td>Stored on the Runner's device and in private account-scoped cloud storage while the related run and account remain active; deleted when the related account data is deleted</td></tr>
     <tr><td>SMS opt-in phone numbers</td><td>Until opt-out (STOP) or verified deletion request; consent and opt-out records retained as required by telecommunications compliance rules</td></tr>
     <tr><td>Anonymous cheerer identifier</td><td>Stored in your own browser; server-side associations retained while related Cheers exist</td></tr>
     <tr><td>Technical logs</td><td>Rolling short-term windows consistent with security and debugging needs</td></tr>
@@ -173,6 +179,7 @@
     <li><strong>SMS:</strong> opt out at any time by replying STOP to any CheerClub message (see Section 5.3).</li>
     <li><strong>Push notifications:</strong> disable at any time in your device's notification settings.</li>
     <li><strong>Microphone:</strong> deny or revoke microphone permission in your browser at any time (you will not be able to record Cheers without it).</li>
+    <li><strong>Location, motion, contacts, and Photos:</strong> deny or revoke these permissions at any time in iOS Settings. Some run tracking, invitation, or saving features will no longer work without the relevant permission.</li>
     <li><strong>Local storage:</strong> clear your browser's site data to remove the anonymous identifier and saved name.</li>
     <li><strong>Access, correction, deletion, portability:</strong> email <a href="mailto:support@cheerclub.app">support@cheerclub.app</a>. We will respond to verified requests within the timeframes required by applicable law (and in any event endeavor to respond within 45 days).</li>
   </ul>
@@ -183,8 +190,8 @@
 
   <h2 id="s11">11. State-Specific Privacy Disclosures</h2>
   <h3>11.1 California (CCPA/CPRA)</h3>
-  <p>This subsection applies to California residents. In the preceding 12 months we have collected the categories of Personal Information described in Section 3, which map to the following CCPA categories: <em>Identifiers</em> (name, phone number, IP address, UUID); <em>Audio or similar information</em> (voice recordings); <em>Internet or other electronic network activity information</em> (usage data); and <em>Inferences</em> only to the trivial extent of associating repeat Cheers with the same anonymous identifier. Sources, purposes, and disclosures are described in Sections 3, 4, and 7 respectively.</p>
-  <p>California residents have the right to: (a) know/access the Personal Information we collect; (b) delete Personal Information; (c) correct inaccurate Personal Information; (d) receive Personal Information in a portable format; (e) opt out of "sale" or "sharing" (we do neither); (f) limit use of sensitive personal information (we do not collect sensitive personal information as defined by the CPRA, except phone numbers used solely for the purposes disclosed); and (g) non-discrimination for exercising rights. Submit requests as described in Section 10. We do not offer financial incentives in exchange for Personal Information. Because we do not sell or share Personal Information, we do not process opt-out preference signals such as Global Privacy Control for those purposes, though we honor them where legally required.</p>
+  <p>This subsection applies to California residents. In the preceding 12 months we have collected the categories of Personal Information described in Section 3, which map to the following CCPA categories: <em>Identifiers</em> (name, phone number, IP address, UUID); <em>precise geolocation</em> (run routes); <em>audio or similar information</em> (voice recordings); <em>internet or other electronic network activity information</em> (usage data); and <em>inferences</em> such as Cheer-impact measurements and associations between repeat Cheers and the same identifier. Sources, purposes, and disclosures are described in Sections 3, 4, and 7 respectively.</p>
+  <p>California residents have the right to: (a) know/access the Personal Information we collect; (b) delete Personal Information; (c) correct inaccurate Personal Information; (d) receive Personal Information in a portable format; (e) opt out of "sale" or "sharing" (we do neither); (f) limit use of sensitive personal information, including precise geolocation, where applicable; and (g) non-discrimination for exercising rights. We use precise geolocation only to provide run tracking, route, Cheer delivery, recap, and related analysis features—not to infer characteristics about you or for advertising. Submit requests as described in Section 10. We do not offer financial incentives in exchange for Personal Information. Because we do not sell or share Personal Information, we do not process opt-out preference signals such as Global Privacy Control for those purposes, though we honor them where legally required.</p>
   <h3>11.2 Virginia, Colorado, Connecticut, Utah, Texas, Oregon &amp; Other State Privacy Laws</h3>
   <p>Residents of states with comprehensive privacy laws (including the VCDPA, CPA, CTDPA, UCPA, TDPSA, and OCPA) have rights of access, correction, deletion, portability, and the right to opt out of targeted advertising, sale, and profiling. We do not engage in targeted advertising, sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects. You may exercise your rights, and appeal a refusal, as described in Section 10.</p>
   <h3>11.3 Nevada</h3>
