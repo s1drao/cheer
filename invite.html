@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>You're invited to CheerClub</title>
+    <meta name="description" content="Get the CheerClub beta on your iPhone in three quick steps." />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#0000F5" />
+    <meta property="og:title" content="You're invited to CheerClub" />
+    <meta property="og:description" content="Voice notes from your people, live in your ears mid-run." />
+    <meta property="og:image" content="https://cheerclub.app/og/track.png" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <style>
+      @font-face {
+        font-family: "Audiowide";
+        src: url("fonts/Audiowide-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Elms Sans";
+        src: url("fonts/ElmsSans-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Elms Sans";
+        src: url("fonts/ElmsSans-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Elms Sans";
+        src: url("fonts/ElmsSans-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-display: block;
+      }
+
+      :root {
+        --blue: #0000f5;
+        --yellow: #fbe74d;
+        --green: #3a8a27;
+        --coral: #ec605a;
+        --sky: #469cf8;
+        --black: #000000;
+        --ink: #2a2430;
+        --paper: #fffdf6;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: #111;
+        color: var(--ink);
+        font-family: "Elms Sans", "Helvetica Neue", Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 16px 120px;
+        min-height: 100vh;
+      }
+
+      /* ---------- the sheet (US Letter, 8.5 × 11in) ---------- */
+
+      .sheet {
+        position: relative;
+        width: 8.5in;
+        height: 11in;
+        overflow: hidden;
+        background: var(--paper);
+        border-radius: 14px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ---------- hero ---------- */
+
+      .hero {
+        position: relative;
+        flex: 0 0 5.05in;
+        padding: 0.62in 0.7in 0;
+        color: #fff;
+        background:
+          radial-gradient(120% 90% at 100% 100%, rgba(70, 156, 248, 0.85) 0%, rgba(70, 156, 248, 0) 60%),
+          radial-gradient(70% 60% at 0% 0%, rgba(70, 156, 248, 0.35) 0%, rgba(70, 156, 248, 0) 70%),
+          var(--blue);
+        overflow: hidden;
+      }
+
+      /* running-track lanes sweeping behind the fan */
+      .lanes {
+        position: absolute;
+        right: -1.6in;
+        bottom: -2.6in;
+        width: 6.4in;
+        height: 6.4in;
+        border-radius: 50%;
+        border: 2px dashed rgba(255, 255, 255, 0.22);
+        box-shadow:
+          0 0 0 0.42in rgba(255, 255, 255, 0.04),
+          0 0 0 0.44in rgba(255, 255, 255, 0.18);
+      }
+      .lanes::before,
+      .lanes::after {
+        content: "";
+        position: absolute;
+        inset: 0.85in;
+        border-radius: 50%;
+        border: 2px dashed rgba(255, 255, 255, 0.16);
+      }
+      .lanes::after {
+        inset: 1.7in;
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .brand-row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .app-icon {
+        width: 0.62in;
+        height: 0.62in;
+        border-radius: 22%;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 7px 14px 6px;
+        border: 1.5px solid var(--yellow);
+        border-radius: 999px;
+        color: var(--yellow);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        position: relative;
+        margin: 0.42in 0 0;
+        font-family: "Audiowide", sans-serif;
+        font-weight: 400;
+        font-size: 76px;
+        line-height: 0.95;
+        letter-spacing: 0.01em;
+        color: var(--yellow);
+        text-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+      }
+
+      .hero .kicker {
+        position: relative;
+        margin: 0.16in 0 0;
+        font-family: "Audiowide", sans-serif;
+        font-size: 19px;
+        letter-spacing: 0.04em;
+        color: #fff;
+      }
+
+      .hero .note {
+        position: relative;
+        max-width: 3.85in;
+        margin: 0.28in 0 0;
+        font-size: 16px;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .hero .note strong {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .fan {
+        position: absolute;
+        right: -0.3in;
+        bottom: -0.32in;
+        width: 3.75in;
+        filter: drop-shadow(0 10px 24px rgba(0, 0, 40, 0.35));
+      }
+
+      .spark {
+        position: absolute;
+        fill: var(--yellow);
+      }
+      .spark.s1 { width: 30px; right: 3.7in; top: 1.15in; transform: rotate(8deg); }
+      .spark.s2 { width: 18px; right: 3.35in; top: 1.62in; fill: #fff; }
+      .spark.s3 { width: 24px; right: 0.55in; top: 0.75in; fill: var(--coral); transform: rotate(-12deg); }
+      .spark.s4 { width: 14px; right: 0.95in; top: 1.25in; }
+
+      /* wavy hem between hero and paper */
+      .hem {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 34px;
+        fill: var(--paper);
+      }
+
+      /* ---------- steps ---------- */
+
+      .body {
+        position: relative;
+        margin-top: -2px;
+        background: var(--paper);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0.32in 0.7in 0;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin: 0;
+      }
+      .section-title h2 {
+        margin: 0;
+        font-family: "Audiowide", sans-serif;
+        font-weight: 400;
+        font-size: 26px;
+        color: var(--blue);
+      }
+      .section-title span {
+        font-size: 13px;
+        color: rgba(42, 36, 48, 0.55);
+        letter-spacing: 0.04em;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin: 0.22in 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .step {
+        position: relative;
+        padding: 20px 18px 18px;
+        border-radius: 18px;
+        background: #fff;
+        border: 1.5px solid rgba(42, 36, 48, 0.08);
+        box-shadow: 0 8px 22px rgba(0, 0, 60, 0.06);
+      }
+
+      .num {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-family: "Audiowide", sans-serif;
+        font-size: 21px;
+        color: #fff;
+      }
+      .step:nth-child(1) .num { background: var(--green); }
+      .step:nth-child(2) .num { background: var(--coral); }
+      .step:nth-child(3) .num { background: var(--sky); }
+
+      .step h3 {
+        margin: 14px 0 6px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .step p {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: rgba(42, 36, 48, 0.72);
+      }
+      .step b {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      /* ---------- scan card ---------- */
+
+      .scan {
+        display: flex;
+        align-items: center;
+        gap: 0.34in;
+        margin: 0.26in 0 0;
+        padding: 0.22in 0.3in 0.22in 0.22in;
+        border-radius: 22px;
+        background: var(--black);
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .qr {
+        flex: 0 0 auto;
+        width: 1.55in;
+        height: 1.55in;
+        padding: 8px;
+        border-radius: 12px;
+        background: #fff;
+      }
+      .qr img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .scan-copy h3 {
+        margin: 0;
+        font-family: "Audiowide", sans-serif;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.15;
+        color: var(--yellow);
+      }
+      .scan-copy p {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .scan-copy .link {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 9px 16px 8px;
+        border-radius: 999px;
+        background: var(--green);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      /* ---------- footer ---------- */
+
+      .foot {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.24in 0 0.36in;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(42, 36, 48, 0.5);
+      }
+      .foot .heart { color: var(--coral); }
+
+      /* ---------- on-screen download bar ---------- */
+
+      .actions {
+        position: fixed;
+        left: 50%;
+        bottom: max(22px, env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+      .actions a {
+        padding: 13px 22px 12px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        white-space: nowrap;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      }
+      .actions .primary { background: var(--yellow); color: var(--black); }
+      .actions .secondary { background: var(--green); color: #fff; }
+
+      /* ---------- phones: reflow the sheet instead of shrinking it ---------- */
+
+      @media screen and (max-width: 860px) {
+        body { padding: 0 0 110px; background: var(--paper); }
+        .sheet { width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+        .hero { flex: none; padding: 32px 24px 0; min-height: 0; }
+        .hero h1 { font-size: 54px; margin-top: 28px; }
+        .hero .kicker { font-size: 16px; }
+        .hero .note { max-width: none; font-size: 15px; }
+        .fan { position: relative; display: block; width: 78%; margin: 6px 0 0 auto; right: -6%; }
+        .spark.s1, .spark.s2 { display: none; }
+        .body { padding: 24px 20px 0; }
+        .section-title { flex-direction: column; gap: 4px; }
+        .steps { grid-template-columns: 1fr; gap: 12px; }
+        .step { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; padding: 16px; }
+        .step .num { grid-row: span 2; }
+        .step h3 { margin: 2px 0 4px; }
+        .scan { flex-direction: column; text-align: center; padding: 24px 20px; gap: 18px; }
+        .qr { width: 160px; height: 160px; }
+        .foot { flex-direction: column; gap: 6px; padding: 24px 0 8px; }
+        .actions .primary { display: none; }
+      }
+
+      @page {
+        size: letter;
+        margin: 0;
+      }
+
+      @media print {
+        html, body { background: none; }
+        body { display: block; padding: 0; min-height: 0; }
+        .sheet { border-radius: 0; box-shadow: none; }
+        /* Quartz (Preview, iOS) paints rasterized shadows as grey slabs */
+        .step,
+        .app-icon { box-shadow: none; }
+        .hero h1 { text-shadow: none; }
+        .actions { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="sheet">
+      <section class="hero">
+        <div class="lanes" aria-hidden="true"></div>
+
+        <div class="brand-row">
+          <img class="app-icon" src="app-icon.png" alt="" />
+          <span class="pill">Friends &amp; family beta</span>
+        </div>
+
+        <h1>CheerClub</h1>
+        <p class="kicker">You're on the guest list.</p>
+        <p class="note">
+          We built an app for runners: friends and family record
+          <strong>voice cheers</strong> that play
+          <strong>right in your ears</strong> as you hit each mile. You're
+          one of the first people we're sharing it with.
+        </p>
+
+        <svg class="spark s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z" /></svg>
+        <svg class="spark s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z" /></svg>
+        <svg class="spark s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z" /></svg>
+        <svg class="spark s4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z" /></svg>
+
+        <img class="fan" src="cheer-fan-arms.png" alt="A fan cheering with both arms raised" />
+
+        <svg class="hem" viewBox="0 0 816 34" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 18C68 4 136 4 204 18S340 32 408 18 544 4 612 18 748 32 816 18V34H0Z" />
+        </svg>
+      </section>
+
+      <section class="body">
+        <div class="section-title">
+          <h2>Get it in 3 steps</h2>
+          <span>iPhone only · takes about a minute</span>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="num">1</div>
+            <h3>Get TestFlight</h3>
+            <p>Download Apple's free <b>TestFlight</b> app from the App Store. It's how beta apps get installed.</p>
+          </li>
+          <li class="step">
+            <div class="num">2</div>
+            <h3>Scan &amp; install</h3>
+            <p>Scan the code below with your iPhone camera, then tap <b>Accept</b> and <b>Install</b>.</p>
+          </li>
+          <li class="step">
+            <div class="num">3</div>
+            <h3>Lace up</h3>
+            <p>Open <b>CheerClub</b>, set up your next run, and send the cheer link to your crew.</p>
+          </li>
+        </ol>
+
+        <a class="scan" href="https://testflight.apple.com/join/EtqrEH2D">
+          <div class="qr"><img src="testflight-qr-blue.svg" alt="QR code for the CheerClub TestFlight invite" /></div>
+          <div class="scan-copy">
+            <h3>Point your camera here</h3>
+            <p>Reading this on your phone? Just tap the button instead.</p>
+            <span class="link">testflight.apple.com/join/EtqrEH2D</span>
+          </div>
+        </a>
+
+        <footer class="foot">
+          <span>Made with <span class="heart">♥</span> in San Francisco</span>
+          <span>cheerclub.app</span>
+        </footer>
+      </section>
+    </main>
+
+    <nav class="actions">
+      <a class="primary" href="cheerclub-invite.pdf" download>Download PDF</a>
+      <a class="secondary" href="https://testflight.apple.com/join/EtqrEH2D">Join the beta</a>
+    </nav>
+  </body>
+</html>
