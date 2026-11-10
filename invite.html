@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#0000F5" />
     <meta property="og:title" content="You're invited to CheerClub" />
-    <meta property="og:description" content="Voice notes from your people, live in your ears mid-run." />
+    <meta property="og:description" content="Virtual cheers from your people, live in your ears mid-run." />
     <meta property="og:image" content="https://cheerclub.app/og/track.png" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <style>
@@ -247,8 +247,8 @@
 
       .steps {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
         margin: 0.22in 0 0;
         padding: 0;
         list-style: none;
@@ -256,11 +256,19 @@
 
       .step {
         position: relative;
-        padding: 20px 18px 18px;
-        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 22px 22px 20px;
+        border-radius: 22px;
         background: #fff;
         border: 1.5px solid rgba(42, 36, 48, 0.08);
         box-shadow: 0 8px 22px rgba(0, 0, 60, 0.06);
+      }
+      .step.dark {
+        background: var(--black);
+        border-color: var(--black);
       }
 
       .num {
@@ -275,56 +283,40 @@
       }
       .step:nth-child(1) .num { background: var(--green); }
       .step:nth-child(2) .num { background: var(--coral); }
-      .step:nth-child(3) .num { background: var(--sky); }
 
       .step h3 {
-        margin: 14px 0 6px;
+        margin: 12px 0 6px;
+        font-family: "Audiowide", sans-serif;
+        font-weight: 400;
         font-size: 18px;
-        font-weight: 700;
-        color: var(--ink);
+        line-height: 1.15;
+        white-space: nowrap;
+        color: var(--blue);
       }
+      .step.dark h3 { color: var(--yellow); }
       .step p {
         margin: 0;
+        min-height: 2.9em;
         font-size: 13.5px;
-        line-height: 1.5;
+        line-height: 1.45;
         color: rgba(42, 36, 48, 0.72);
       }
-      .step-link {
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 11.5px;
-        font-weight: 700;
-        color: var(--green);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        white-space: nowrap;
-      }
+      .step.dark p { color: rgba(255, 255, 255, 0.75); }
       .step b {
         color: var(--ink);
         font-weight: 700;
       }
-
-      /* ---------- scan card ---------- */
-
-      .scan {
-        display: flex;
-        align-items: center;
-        gap: 0.34in;
-        margin: 0.2in 0 0;
-        padding: 0.2in 0.3in 0.2in 0.2in;
-        border-radius: 22px;
-        background: var(--black);
-        color: #fff;
-        text-decoration: none;
-      }
+      .step.dark b { color: #fff; }
 
       .qr {
-        flex: 0 0 auto;
+        display: block;
         width: 1.55in;
         height: 1.55in;
-        padding: 8px;
-        border-radius: 12px;
+        margin-top: 16px;
+        padding: 6px;
+        border-radius: 14px;
         background: #fff;
+        border: 1.5px solid rgba(0, 0, 245, 0.14);
       }
       .qr img {
         display: block;
@@ -332,31 +324,32 @@
         height: 100%;
       }
 
-      .scan-copy h3 {
-        margin: 0;
-        font-family: "Audiowide", sans-serif;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 1.15;
-        color: var(--yellow);
-      }
-      .scan-copy p {
-        margin: 8px 0 0;
-        font-size: 14px;
-        line-height: 1.5;
-        color: rgba(255, 255, 255, 0.78);
-      }
-      .scan-copy .link {
+      .btn {
         display: inline-block;
-        margin-top: 12px;
-        padding: 9px 16px 8px;
+        margin-top: 16px;
+        padding: 11px 24px 10px;
         border-radius: 999px;
         background: var(--green);
         color: #fff;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 700;
         letter-spacing: 0.02em;
+        text-decoration: none;
       }
+      .step.dark .btn {
+        background: var(--yellow);
+        color: var(--black);
+      }
+
+      .plain-link {
+        margin-top: 10px;
+        font-size: 11.5px;
+        color: rgba(42, 36, 48, 0.6);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        word-break: break-all;
+      }
+      .step.dark .plain-link { color: rgba(255, 255, 255, 0.62); }
 
       /* ---------- footer ---------- */
 
@@ -395,12 +388,10 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
       }
       .actions .primary { background: var(--yellow); color: var(--black); }
-      .actions .secondary { background: var(--green); color: #fff; }
-
       /* ---------- phones: reflow the sheet instead of shrinking it ---------- */
 
       @media screen and (max-width: 860px) {
-        body { padding: 0 0 110px; background: var(--paper); }
+        body { padding: 0; background: var(--paper); }
         .sheet { width: 100%; height: auto; border-radius: 0; box-shadow: none; }
         .hero { flex: none; padding: 32px 24px 0; min-height: 0; }
         .hero h1 { font-size: 54px; margin-top: 28px; }
@@ -410,15 +401,10 @@
         .spark.s1, .spark.s2 { display: none; }
         .body { padding: 24px 20px 0; }
         .section-title { flex-direction: column; gap: 4px; }
-        .steps { grid-template-columns: 1fr; gap: 12px; }
-        .step { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; padding: 16px; }
-        .step .num { grid-row: span 3; }
-        .step-link { grid-column: 2; justify-self: start; }
-        .step h3 { margin: 2px 0 4px; }
-        .scan { flex-direction: column; text-align: center; padding: 24px 20px; gap: 18px; }
-        .qr { width: 160px; height: 160px; }
+        .steps { grid-template-columns: 1fr; gap: 14px; }
+        .step { padding: 24px 20px 22px; }
         .foot { flex-direction: column; gap: 6px; padding: 24px 0 8px; }
-        .actions .primary { display: none; }
+        .actions { display: none; }
       }
 
       @page {
@@ -452,7 +438,7 @@
         <p class="kicker">You're on the guest list.</p>
         <p class="note">
           We built an app for runners: friends and family record
-          <strong>voice cheers</strong> that play
+          <strong>virtual cheers</strong> that play
           <strong>right in your ears</strong> as you hit each mile. You're
           one of the first people we're sharing it with.
         </p>
@@ -471,37 +457,32 @@
 
       <section class="body">
         <div class="section-title">
-          <h2>Get it in 3 steps</h2>
+          <h2>Get it in 2 steps</h2>
           <span>iPhone only · takes about a minute</span>
         </div>
 
         <ol class="steps">
           <li class="step">
             <div class="num">1</div>
-            <h3>Scan the code</h3>
-            <p>Point your iPhone camera at the code below. It opens Apple's <b>CheerClub beta</b> page.</p>
+            <h3>Download TestFlight</h3>
+            <p>Apple's free app for downloading apps that aren't on the App Store yet.</p>
+            <a class="qr" href="https://apps.apple.com/app/testflight/id899247664">
+              <img src="qr-testflight-app.svg" alt="QR code to download TestFlight from the App Store" />
+            </a>
+            <a class="btn" href="https://apps.apple.com/app/testflight/id899247664">Get TestFlight</a>
+            <a class="plain-link" href="https://apps.apple.com/app/testflight/id899247664">apps.apple.com/app/testflight/id899247664</a>
           </li>
-          <li class="step">
+          <li class="step dark">
             <div class="num">2</div>
-            <h3>Get TestFlight</h3>
-            <p>No TestFlight yet? Tap <b>View in App Store</b> to get it, then come back and tap <b>View in TestFlight</b>.</p>
-            <a class="step-link" href="https://apps.apple.com/app/testflight/id899247664">apps.apple.com/app/testflight</a>
-          </li>
-          <li class="step">
-            <div class="num">3</div>
-            <h3>Install &amp; lace up</h3>
-            <p>Tap <b>Accept</b>, then <b>Install</b>. Open <b>CheerClub</b> and send your cheer link to friends.</p>
+            <h3>Download CheerClub Beta</h3>
+            <p>Opens CheerClub in TestFlight. Tap <b>Accept</b>, then <b>Install</b>, and you're in.</p>
+            <a class="qr" href="https://testflight.apple.com/join/EtqrEH2D">
+              <img src="qr-cheerclub-beta.svg" alt="QR code to join the CheerClub beta on TestFlight" />
+            </a>
+            <a class="btn" href="https://testflight.apple.com/join/EtqrEH2D">Get CheerClub Beta</a>
+            <a class="plain-link" href="https://testflight.apple.com/join/EtqrEH2D">testflight.apple.com/join/EtqrEH2D</a>
           </li>
         </ol>
-
-        <a class="scan" href="https://testflight.apple.com/join/EtqrEH2D">
-          <div class="qr"><img src="testflight-qr-blue.svg" alt="QR code for the CheerClub TestFlight invite" /></div>
-          <div class="scan-copy">
-            <h3>Point your camera here</h3>
-            <p>Reading this on your phone? Just tap the button instead.</p>
-            <span class="link">testflight.apple.com/join/EtqrEH2D</span>
-          </div>
-        </a>
 
         <footer class="foot">
           <span>Made with <span class="heart">♥</span> in San Francisco</span>
@@ -512,7 +493,6 @@
 
     <nav class="actions">
       <a class="primary" href="cheerclub-invite.pdf" download>Download PDF</a>
-      <a class="secondary" href="https://testflight.apple.com/join/EtqrEH2D">Join the beta</a>
     </nav>
   </body>
 </html>
