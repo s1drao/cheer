@@ -159,15 +159,6 @@
         text-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
       }
 
-      .hero .kicker {
-        position: relative;
-        margin: 0.16in 0 0;
-        font-family: "Audiowide", sans-serif;
-        font-size: 19px;
-        letter-spacing: 0.04em;
-        color: #fff;
-      }
-
       .hero .note {
         position: relative;
         max-width: 3.85in;
@@ -244,11 +235,7 @@
         box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
       }
       .step-label {
-        display: inline-block;
-        padding: 7px 14px 6px;
-        border-radius: 999px;
-        background: var(--green);
-        color: #fff;
+        color: var(--green);
         font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.2em;
@@ -275,8 +262,20 @@
       }
 
       /* phones tap the app icon instead of scanning */
-      .app-tap {
+      .app-tap,
+      .app-btn {
         display: none;
+      }
+      .app-btn {
+        margin-top: -4px;
+        padding: 11px 30px 10px;
+        border-radius: 999px;
+        background: var(--green);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-decoration: none;
       }
       .app-tap img {
         display: block;
@@ -304,9 +303,10 @@
         max-width: 5.6in;
         margin: 0 auto;
         font-family: "Audiowide", sans-serif;
-        font-size: 24px;
-        line-height: 1.3;
-        color: var(--yellow);
+        font-size: 19px;
+        letter-spacing: 0.04em;
+        line-height: 1.4;
+        color: #fff;
       }
       .thanks-url {
         display: block;
@@ -345,7 +345,6 @@
         .sheet { width: 100%; height: auto; border-radius: 0; box-shadow: none; }
         .hero { flex: none; padding: 32px 24px 0; min-height: 0; }
         .hero h1 { font-size: 54px; margin-top: 28px; }
-        .hero .kicker { font-size: 16px; }
         .brand-row { flex-wrap: wrap; gap: 10px; }
         .pill { white-space: nowrap; font-size: 10px; letter-spacing: 0.14em; }
         .app-icon { display: none; }
@@ -357,9 +356,10 @@
         .step { flex-direction: column; text-align: center; gap: 18px; padding: 24px 20px 26px; }
         .step h3 { font-size: 21px; margin-top: 12px; }
         .qr { display: none; }
-        .app-tap { display: block; }
+        .app-tap,
+        .app-btn { display: block; }
         .thanks { padding: 56px 28px 32px; }
-        .thanks p { font-size: 21px; }
+        .thanks p { font-size: 17px; }
         .actions { display: none; }
       }
 
@@ -389,7 +389,6 @@
           <span class="pill">Friends &amp; family beta</span>        </div>
 
         <h1>CheerClub</h1>
-        <p class="kicker">You're on the guest list.</p>
         <p class="note">
           Your friends and family can record <strong>virtual cheers</strong>
           for your next run. We are sharing our beta app with select few
@@ -413,7 +412,7 @@
           <li class="step">
             <div class="step-copy">
               <span class="step-label">Step 1</span>
-              <h3>Download TestFlight</h3>
+              <h3>TestFlight</h3>
             </div>
             <a class="qr" href="https://apps.apple.com/app/testflight/id899247664">
               <img src="qr-testflight-app.svg" alt="QR code to download TestFlight from the App Store" />
@@ -421,6 +420,7 @@
             <a class="app-tap" href="https://apps.apple.com/app/testflight/id899247664">
               <img src="testflight-icon.png" alt="Get TestFlight on the App Store" />
             </a>
+            <a class="app-btn" href="https://apps.apple.com/app/testflight/id899247664">Download</a>
           </li>
           <li class="step">
             <div class="step-copy">
